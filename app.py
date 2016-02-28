@@ -1,6 +1,4 @@
-from xml.etree.ElementTree import fromstring
-
-from flask import Flask, render_template, request,json,jsonify, redirect
+from flask import Flask, render_template, request,json
 import urllib
 
 app = Flask(__name__)
@@ -35,8 +33,6 @@ def getact():
          listOfLatLon.append(coordinates)
 
         name = "Map"
-        latitude = data["restaurants"][2]["restaurant"]["location"]["latitude"]
-        longitude = data["restaurants"][2]["restaurant"]["location"]["longitude"]
         user = {'nickname': "Anna"}
         return render_template('index2.html',title=name,user=user,latitude=lati,longitude=longi,listOf=listOfLatLon)
 
@@ -56,10 +52,6 @@ def getact():
         user = {'nickname': "Anna"}
         return render_template('index2.html',title=name,user=user,latitude=lati,longitude=longi,listOf=listOfLatLon)
 
-
-
-
-   # return redirect('/')
 
 if __name__ == '__main__':
     app.run()
